@@ -1,0 +1,24 @@
+node
+{
+    stage "1. update the system"
+    sh "yum update -y"
+    sh "ls -al"
+    
+    stage "2. install the packages"
+    sh "yum install -y httpd"
+    
+    stage "3.verify the packages installed or not"
+    sh "rpm -qa | grep httpd"
+    
+    stage "4. restart the services"
+    sh "systemctl restart httpd"
+    
+    stage "5. enable the services"
+    sh "systemctl enable httpd"
+    
+    stage "6. check the services status"
+    sh "systemctl status httpd"
+    
+    stage "7. view the date"
+    sh "date"
+}
